@@ -1,0 +1,1029 @@
+/* ==========================================================================
+   1. ОБЩИЕ СТИЛИ И СБРОСЫ
+   ========================================================================== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Manrope', 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+}
+
+/* Заголовки — Unbounded для премиум-вида */
+h1, h2, h3, .logo, .tariffs-title, .main-title {
+    font-family: 'Unbounded', 'Manrope', sans-serif;
+    letter-spacing: -0.02em;
+}
+
+body {
+    background-color: #0f172a;
+    color: #ffffff;
+    line-height: 1.6;
+    padding-bottom: 60px;
+}
+
+.content {
+    max-width: 800px; 
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Утилита: запрет переноса строки */
+.nowrap {
+    white-space: nowrap;
+}
+
+/* Мягкая сине-голубая линия разделения секций */
+.luxury-divider {
+    position: relative;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(90deg, rgba(56, 189, 248, 0.02) 0%, rgba(56, 189, 248, 0.25) 50%, rgba(56, 189, 248, 0.02) 100%);
+    margin: 20px 0 60px 0;
+}
+
+.luxury-divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    background: #38bdf8;
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.8);
+}
+
+
+/* ==========================================================================
+   2. ШАПКА САЙТА (HEADER) И КНОПКИ
+   ========================================================================== */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: #1e293b;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+    cursor: pointer;
+    user-select: none;
+    transition: 0.3s ease;
+}
+
+.logo:hover {
+    text-shadow: 0 0 20px rgba(56, 189, 248, 0.8);
+}
+
+.btn-header {
+    display: inline-block;
+    padding: 8px 18px;
+    background: transparent;
+    color: #ffffff;
+    text-decoration: none;
+    border: 1px solid rgba(56, 189, 248, 0.5);
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: 0.3s ease;
+}
+
+.btn-header:hover {
+    background: rgba(56, 189, 248, 0.1);
+    border-color: #38bdf8;
+}
+
+.btn-main, .btn-submit {
+    display: inline-block;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 800;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.4s ease;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(29, 78, 216, 0.4);
+}
+
+.btn-main:hover, .btn-submit:hover {
+    background: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%);
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.6);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    display: inline-block;
+    padding: 14px 32px;
+    background-color: transparent;
+    color: #38bdf8;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 800;
+    border: 2px solid #38bdf8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.4s ease;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(56, 189, 248, 0.08);
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+    transform: translateY(-2px);
+}
+
+
+/* ==========================================================================
+   3. ГЛАВНЫЙ ЭКРАН (HERO SECTION)
+   ========================================================================== */
+
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    margin: 50px 0 60px 0;
+}
+
+.main-title {
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    margin-bottom: 35px;
+    color: #ffffff;
+    line-height: 1.2;
+}
+
+.hero-image-box {
+    position: relative;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    margin-bottom: 35px;
+}
+
+.hero-image-box::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 40%;
+    background: linear-gradient(180deg, transparent 0%, #0f172a 100%);
+    pointer-events: none;
+}
+
+.responsive-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.hero-image-box:hover .responsive-img {
+    transform: scale(1.03);
+}
+
+.hero-text-bottom {
+    width: 100%;
+}
+
+.hero-subtext {
+    font-size: 1.15rem;
+    color: #94a3b8;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+
+/* ==========================================================================
+   4. КОНТЕНТНЫЕ БЛОКИ И СЕКЦИИ
+   ========================================================================== */
+
+h2 {
+    text-align: left;
+    font-size: 1.9rem;
+    margin-bottom: 15px;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+    color: #ffffff;
+    line-height: 1.25;
+}
+
+.section-subtitle {
+    text-align: left;
+    color: #64748b;
+    margin-bottom: 35px;
+}
+
+/* Блок Почему SAIFUP2P */
+.why-us {
+    margin-bottom: 80px;
+}
+
+.why-tagline {
+    font-size: 0.95rem;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+.why-us h2 {
+    text-align: left;
+    font-size: 1.9rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.why-content p {
+    color: #cbd5e1;
+    font-size: 1.1rem;
+}
+
+.tg-link {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 1px solid #38bdf8;
+    transition: 0.3s;
+}
+
+.tg-link:hover {
+    color: #bae6fd;
+}
+
+/* Челлендж */
+.challenge-section {
+    margin-bottom: 80px;
+}
+
+.challenge-box {
+    background: linear-gradient(90deg, #1e293b 0%, rgba(15, 23, 42, 0) 100%);
+    padding: 30px;
+    border-radius: 4px;
+    border-left: 4px solid #38bdf8;
+    font-size: 1.15rem;
+    color: #e2e8f0;
+    margin-bottom: 35px;
+}
+
+.schedule-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 8px;
+    letter-spacing: 0.3px;
+}
+
+.schedule-subtitle {
+    color: #94a3b8;
+    font-size: 1rem;
+    margin-bottom: 25px;
+}
+
+.deals-gallery {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+}
+
+.deal-img-box {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    background: #1e293b;
+    transition: 0.3s ease;
+}
+
+.deal-img-box:hover {
+    border-color: rgba(56, 189, 248, 0.5);
+    box-shadow: 0 10px 25px rgba(56, 189, 248, 0.15);
+}
+
+.deal-img-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Чему научим */
+.errors-section {
+    margin-bottom: 80px;
+}
+
+.errors-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0;
+}
+
+.error-card {
+    flex: 1;
+    min-width: 280px;
+    background-color: #1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.error-card h3 {
+    margin-bottom: 12px;
+    font-size: 1.15rem;
+}
+
+.error-card:nth-child(2) {
+    border-color: rgba(56, 189, 248, 0.3);
+    background: linear-gradient(180deg, #1e293b 0%, rgba(56, 189, 248, 0.02) 100%);
+}
+
+.error-card:nth-child(2) h3 {
+    color: #38bdf8;
+}
+
+
+/* ==========================================================================
+   5. ТАРИФЫ
+   ========================================================================== */
+
+.tariffs {
+    margin-bottom: 80px;
+}
+
+.grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0;
+}
+
+.card {
+    flex: 1;
+    min-width: 280px;
+    background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 40px 25px;
+    border-radius: 8px;
+    text-align: left;
+    position: relative;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(56, 189, 248, 0.4);
+}
+
+.card.active {
+    border-color: #38bdf8;
+    box-shadow: 0 15px 35px rgba(56, 189, 248, 0.15);
+}
+
+.card-badge {
+    position: absolute;
+    top: -12px;
+    left: 30px;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: #ffffff;
+    padding: 4px 14px;
+    font-size: 0.75rem;
+    font-weight: 900;
+    border-radius: 2px;
+}
+
+.card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.card .price {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #38bdf8;
+    margin-bottom: 20px;
+    font-family: 'Unbounded', sans-serif;
+}
+
+.card p {
+    color: #94a3b8;
+}
+
+.tariffs-title {
+    text-align: left;
+    font-size: 1.9rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.custom-tariff-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    align-items: stretch;
+}
+
+.full-width-card {
+    grid-column: span 2;
+}
+
+.tariff-card-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.card-content-top {
+    flex-grow: 1;
+    margin-bottom: 30px;
+}
+
+.tariff-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.price-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+
+.old-price {
+    font-size: 1rem;
+    text-decoration: line-through;
+    color: #64748b;
+    margin-bottom: 2px;
+}
+
+.tariff-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tariff-features li {
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    position: relative;
+    padding-left: 20px;
+    line-height: 1.4;
+}
+
+.tariff-features li::before {
+    content: "•";
+    color: #38bdf8;
+    font-weight: bold;
+    font-size: 1.3rem;
+    position: absolute;
+    left: 0;
+    top: -2px;
+}
+
+.grid-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 24px;
+}
+
+
+/* ==========================================================================
+   6. ПРЕИМУЩЕСТВА И ЦИТАТА
+   ========================================================================== */
+
+.simple-features {
+    margin-bottom: 80px;
+}
+
+.features-container {
+    background-color: #1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.features-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.features-list li {
+    padding: 20px 25px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    font-size: 1.05rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    line-height: 1.55;
+}
+
+.features-list li:last-child {
+    border-bottom: none;
+}
+
+.features-list strong {
+    color: #38bdf8;
+    min-width: 220px;
+    flex-shrink: 0;
+    display: inline-block;
+}
+
+/* Цитата между разделителями */
+.quote {
+    font-style: italic;
+    font-size: 1.25rem;
+    color: #cbd5e1;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+    text-align: center;
+    padding: 0 10px;
+    position: relative;
+}
+
+.quote::before {
+    content: "❝";
+    color: #38bdf8;
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 10px;
+    line-height: 1;
+}
+
+
+/* ==========================================================================
+   7. ФОРМА ЗАЯВКИ
+   ========================================================================== */
+
+.form-section {
+    max-width: 550px;
+    margin: 0 auto 80px auto;
+    background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+    padding: 45px 35px;
+    border-radius: 8px;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.form-section h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-alert {
+    text-align: center;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #38bdf8 0%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+}
+
+.main-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.main-form input, .form-select-item, .main-form textarea {
+    padding: 15px;
+    background-color: #0f172a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    color: #fff;
+    font-size: 1rem;
+    width: 100%;
+    font-family: inherit;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-select-item option {
+    background-color: #0f172a;
+}
+
+.main-form input:focus, .form-select-item:focus, .main-form textarea:focus {
+    outline: none;
+    border-color: #38bdf8;
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
+}
+
+.success-box {
+    text-align: left;
+    background-color: rgba(56, 189, 248, 0.02);
+    border: 1px solid #38bdf8;
+    padding: 35px 25px;
+    border-radius: 6px;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ==========================================================================
+   8. FAQ (АККОРДЕОН)
+   ========================================================================== */
+
+.faq-section {
+    margin-bottom: 60px;
+}
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.faq-item {
+    background-color: #1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-item[open] {
+    border-color: rgba(56, 189, 248, 0.4);
+    box-shadow: 0 8px 25px rgba(56, 189, 248, 0.08);
+}
+
+.faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 20px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    transition: color 0.3s ease;
+    user-select: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary:hover {
+    color: #38bdf8;
+}
+
+.faq-icon {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.faq-icon::before,
+.faq-icon::after {
+    content: "";
+    position: absolute;
+    background: #38bdf8;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.faq-icon::before {
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    transform: translateY(-50%);
+}
+
+.faq-icon::after {
+    left: 50%;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    transform: translateX(-50%);
+}
+
+.faq-item[open] .faq-icon::after {
+    transform: translateX(-50%) rotate(90deg);
+    opacity: 0;
+}
+
+.faq-item[open] .faq-icon {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    padding: 0 22px 22px 22px;
+    color: #94a3b8;
+    animation: faqFadeIn 0.3s ease;
+}
+
+.faq-answer p {
+    line-height: 1.6;
+}
+
+@keyframes faqFadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ==========================================================================
+   9. ПОДВАЛ И ПЛАВАЮЩАЯ КНОПКА
+   ========================================================================== */
+
+.footer {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+    color: #64748b;
+    border-top: 1px solid #1e293b;
+}
+
+.scroll-top-btn {
+    display: inline-block;
+    margin-top: 15px;
+    color: #38bdf8;
+    background: transparent;
+    border: none;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: inherit;
+    transition: 0.3s ease;
+}
+
+.scroll-top-btn:hover {
+    color: #bae6fd;
+}
+
+.scroll-up-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: #fff;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(29, 78, 216, 0.4);
+    z-index: 999;
+}
+
+.scroll-up-btn.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-up-btn:hover {
+    background: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%);
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.7);
+    transform: translateY(-3px) scale(1.05);
+}
+
+
+/* ==========================================================================
+   10. КАСТОМНЫЕ УВЕДОМЛЕНИЯ
+   ========================================================================== */
+
+.notification {
+    position: fixed;
+    top: 90px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-20px);
+    padding: 14px 28px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    opacity: 0;
+    transition: all 0.4s ease;
+    z-index: 9999;
+    max-width: 90%;
+    text-align: center;
+    pointer-events: none;
+}
+
+.notification-show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.notification-error {
+    background: #1e293b;
+    color: #fca5a5;
+    border: 1px solid #ef4444;
+    box-shadow: 0 0 25px rgba(239, 68, 68, 0.3);
+}
+
+.notification-info {
+    background: #1e293b;
+    color: #bae6fd;
+    border: 1px solid #38bdf8;
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.3);
+}
+
+
+/* ==========================================================================
+   11. ПОДПИСЬ РАЗРАБОТЧИКА И ПАСХАЛКА
+   ========================================================================== */
+
+.dev-signature {
+    margin-top: 8px;
+    font-size: 0.8rem;
+    color: #475569;
+    letter-spacing: 0.3px;
+}
+
+.dev-name {
+    color: #475569;
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+
+.dev-name:hover {
+    color: #64748b;
+}
+
+.easter-egg {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid #38bdf8;
+    color: #e2e8f0;
+    padding: 14px 28px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 0 30px rgba(56, 189, 248, 0.4);
+    opacity: 0;
+    animation: eggAppear 0.5s ease forwards;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.easter-egg strong {
+    color: #38bdf8;
+    font-weight: 800;
+}
+
+.easter-egg-hide {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+    transition: 0.5s ease;
+}
+
+@keyframes eggAppear {
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+
+/* ==========================================================================
+   12. АДАПТИВНОСТЬ
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .header {
+        padding: 12px 4%;
+    }
+    .logo {
+        font-size: 18px;
+    }
+    .btn-header {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+        border-color: rgba(56, 189, 248, 0.3);
+        box-shadow: none !important;
+    }
+    .main-title {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+    h2 {
+        font-size: 1.4rem;
+    }
+    .card h3 {
+        font-size: 1.15rem;
+    }
+    .card .price {
+        font-size: 1.7rem;
+    }
+    .features-list li {
+        font-size: 0.95rem;
+        padding: 16px 20px;
+        flex-direction: column;
+        gap: 6px;
+    }
+    .features-list strong {
+        min-width: auto;
+    }
+    .form-section {
+        margin-right: auto;
+    }
+    .custom-tariff-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .full-width-card {
+        grid-column: span 1;
+    }
+    .grid-features {
+        grid-template-columns: 1fr;
+    }
+    .tariffs-title {
+        font-size: 1.5rem;
+    }
+    .schedule-title {
+        font-size: 1.2rem;
+    }
+    .faq-item summary {
+        font-size: 1rem;
+        padding: 16px 18px;
+    }
+    .faq-answer {
+        padding: 0 18px 18px 18px;
+    }
+    .quote {
+        font-size: 1.05rem;
+    }
+    .hero-subtext {
+        font-size: 1rem;
+    }
+    .scroll-up-btn {
+        width: 44px;
+        height: 44px;
+        bottom: 20px;
+        right: 20px;
+    }
+    .easter-egg {
+        font-size: 0.8rem;
+        padding: 10px 20px;
+        bottom: 20px;
+    }
+}
